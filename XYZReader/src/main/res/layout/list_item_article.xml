@@ -1,0 +1,99 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_gravity="center"
+    android:layout_margin="12dp"
+    android:background="@color/cardview_dark_background"
+    android:clickable="true"
+    android:elevation="7dp"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:stateListAnimator="@anim/fab_state_list_anim">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--suppress AndroidLintContentDescription -->
+        <com.example.xyzreader.ui.DynamicHeightNetworkImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="400dp"
+            android:layout_height="600dp"
+            android:background="#344955" />
+    </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/article_title"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/thumbnail"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:fontFamily="serif-medium-bold"
+            android:maxLines="5"
+            android:text=""
+            android:paddingBottom="4dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="80dp"
+        android:layout_height="110dp"
+        android:id="@+id/img_cover_d"
+        android:src="@drawable/wolf_bg"
+        android:scaleType="centerCrop"
+        app:riv_border_width="2dip"
+        android:layout_marginTop="100dp"
+        app:riv_border_color="#ffffff"
+        android:layout_marginBottom="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp" />
+
+        <TextView
+            android:id="@+id/article_subtitle"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:layout_below="@+id/article_subtitle"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+        <View
+            android:id="@+id/vw_blacklayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha=".4" />
+
+
+
+
+
+
+
+</android.support.v7.widget.CardView>
