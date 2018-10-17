@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -43,7 +44,7 @@ import java.util.GregorianCalendar;
  * activity presents a grid of items as cards.
  */
 
-public class ArticleListActivity extends AppCompatActivity implements
+public class ArticleListActivity extends ArticleDetailActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String TAG = ArticleListActivity.class.toString();
@@ -63,11 +64,8 @@ public class ArticleListActivity extends AppCompatActivity implements
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle(R.string.app_name);
-        getSupportActionBar().hide();
-//        setSupportActionBar(mToolbar);
+        setSupportActionBar(mToolbar);
 
-
-//        final View toolbarContainerView = findViewById(R.id.toolbar_container);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
@@ -81,6 +79,9 @@ public class ArticleListActivity extends AppCompatActivity implements
             refresh();
         }
     }
+
+
+
 
 
     private void refresh() {
@@ -135,12 +136,11 @@ public class ArticleListActivity extends AppCompatActivity implements
             controller = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_animation_fall_down);
 
 
-
-
         recyclerView.setLayoutAnimation(controller);
 
         recyclerView.scheduleLayoutAnimation();
     }
+
 
 
     @Override
@@ -192,7 +192,7 @@ public class ArticleListActivity extends AppCompatActivity implements
             mCursor.moveToPosition(position);
             Context context = null;
 
-//            YoYo.with(Techniques.FadeIn).playOn(holder.cardView);
+
             holder.titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
             Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
@@ -215,10 +215,9 @@ public class ArticleListActivity extends AppCompatActivity implements
                     ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
             holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
 
-//          Picasso.with((context)).load(R.drawable.japanese).into(holder.mBackground);
 
-            ObjectAnimator fade = ObjectAnimator.ofFloat(holder._vw_player, View.ALPHA, 1f,.3f);
-            fade.setDuration(1500);
+            ObjectAnimator fade = ObjectAnimator.ofFloat(holder._vw_player, View.ALPHA, 1f, .3f);
+            fade.setDuration(3000);
             fade.setInterpolator(new LinearInterpolator());
             fade.start();
 
@@ -232,7 +231,6 @@ public class ArticleListActivity extends AppCompatActivity implements
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public DynamicHeightNetworkImageView thumbnailView;
-        public ImageView mBackground;
         public TextView titleView;
         public TextView subtitleView;
         public CardView cardView;

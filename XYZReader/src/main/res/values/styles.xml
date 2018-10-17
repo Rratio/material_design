@@ -17,26 +17,16 @@
 
 <resources>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowExitTransition">@transition/exit_transition</item>
+        <item name="android:statusBarColor">@color/cardview_dark_background</item>
     </style>
-<!--<style name="AppTheme">-->
-   <!---->
-<!--</style>-->
 
 
-    <style name="Theme.Bacon.Detail">
+    <style name="Theme.Bacon.Detail" parent="Theme.Bacon">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <!--<style name="Home">-->
-        <!--<item name="android:windowExitTransition">@transition/exit_transition</item>-->
-    <!--</style>-->
-
-    <!--<style name="Detail">-->
-
-        <!--<item name="android:windowContentTransitions">true</item>-->
-    <!--</style>-->
 
 </resources>
