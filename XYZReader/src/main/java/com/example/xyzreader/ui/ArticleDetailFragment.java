@@ -154,9 +154,7 @@ public class ArticleDetailFragment extends Fragment implements
 
         fab_share = (FloatingActionButton) mRootView.findViewById(R.id.share_fab);
         cardView = (CardView) mRootView.findViewById(R.id.card_view);
-//        mRoundedImage = (ImageView) mRootView.findViewById(R.id.cover_details);
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
-//        mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
         FabOpen = AnimationUtils.loadAnimation(getActivity(), R.anim.fab_open);
         FabClose = AnimationUtils.loadAnimation(getActivity(), R.anim.fab_close);
         FabRotate = AnimationUtils.loadAnimation(getActivity(), R.anim.rotate_clockwise);
